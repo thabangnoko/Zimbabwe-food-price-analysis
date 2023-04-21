@@ -295,3 +295,83 @@ average	            |cm_name	             |mp_year |
 -- result is analysed fully it is observed that in the years where maize was not the cheapest it 
 -- still was listed as second cheapest therefore it should not be ommitted from the analysis.
 
+
+-- Lastly average GDP data was taken and compared to the average increase in food prices
+-- This was first uploaded to BigQuery and placed in a table.
+
+--  The columns did not have titles therefore they needed to be added
+
+ALTER TABLE `global-food-prices.food_prices.Zimbabwe_GDP`
+  RENAME COLUMN string_field_0 TO date;
+  
+ALTER TABLE `global-food-prices.food_prices.Zimbabwe_GDP`
+  RENAME COLUMN string_field_1 TO GDP;
+  
+-- There were also null values which needed to be removed
+  
+CREATE TABLE `global-food-prices.food_prices.Zimbabwe_GDP_Corrected` AS
+SELECT LEFT(date, 4) AS YEAR, GDP FROM `global-food-prices.food_prices.Zimbabwe_GDP`
+WHERE GDP IS NOT NULL
+
+-- The dates chosen were those that corresponded to those on the food price dataset
+
+SELECT * 
+FROM `global-food-prices.food_prices.Zimbabwe_GDP_Corrected`
+WHERE YEAR = '2010' OR
+      YEAR = '2011' OR
+      YEAR = '2012' OR
+      YEAR = '2013' OR
+      YEAR = '2014' OR
+      YEAR = '2015' OR
+      YEAR = '2016' OR
+      YEAR = '2017'
+      
+-- Result
+
+YEAR	|GDP       |
+------+-----------
+2012	|1290.194  |
+2015	|1410.3292 |
+2013	|1408.3678 |
+2010	|937.8403  |
+2016	|1421.7878 |
+2011	|1082.6158 |
+2017	|1192.107  |
+2014	|1407.0343 |
+------------------
+
+--  Both columns in the dataset were in the form of strings therefore they were
+--  extracted to a csv and sorted on excel.
+
+--  Result
+
+YEAR	|GDP       |
+------+----------
+2010	|937.8403  |
+2011	|1082.6158 | 
+2012	|1290.194  |
+2013	|1408.3678 |
+2014	|1407.0343 |
+2015	|1410.3292 |
+2016	|1421.7878 |
+2017	|1192.107  |
+------------------
+
+-- Next the % change in GDP and average price was investigated
+
+--  Results
+GDP % change |Avg price % change |
+-------------+-------------------
+15.43711653	 |19.12388251        |
+19.17376414	 |5.219199493        |
+9.159382232	 |15.30832687        |
+-0.094684073 |88.20236157        |
+0.234173396	 |37.27031368        |
+0.812476973	 |3.678670871        |
+-16.15436565 |	-1.653729034     |
+----------------------------------
+
+--  Not much correlation can be seen however, from 2013-14, the biggest increase in price
+--  can be seen after the GDP faced its first decrease. This really emphasises the 
+--  difficult situation Zimbabwe must have been facing during that time.
+--  A csv file will be attached illustrating the percentage changes. 
