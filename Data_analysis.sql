@@ -159,12 +159,12 @@ total_weight |cm_name	                     |mp_year |
 1225	       |Maize	                       |2011    |
 1295	       |Maize	                       |2012    |
 1310	       |Maize	                       |2013    |
-790	         |Maize	                       |2014    |
-420	         |Oil (vegetable)              |2014    |
+790	       |Maize	                       |2014    |
+420	       |Oil (vegetable)              |2014    |
 140	         |"Maize meal (white, roller)" |2014    |
 115  	       |Beans	                       |2014    |
 85	       |Sorghum	                     |2014    |
-50	         |Groundnuts (shelled)	       |2014    |
+50	       |Groundnuts (shelled)	       |2014    |
 ............ |............................ |....... |
 -----------------------------------------------------
 
