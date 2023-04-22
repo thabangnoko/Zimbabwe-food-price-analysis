@@ -1,5 +1,5 @@
 # Zimbabwe-food-price-analysis
-Here I undertook a data exploration/analysis project of Zimbabwe food prices. The data used was from Global food prices and it was used to identify any trends in the food prices in Zimbabwe, i.e, what food is cheapest/most expensive. Data on GDP was also obtained to compare how this may have correlated to the food prices.
+Here I undertook a data exploration/analysis project of Zimbabwe food prices. The data investigated was from Global food prices and it was used to identify any trends in the food prices in Zimbabwe, i.e, what food is cheapest/most expensive. Data on GDP was also obtained to compare how this may have correlated to the food prices.
 
 #  Questions investigated
 -  What food is produced most each year
